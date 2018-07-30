@@ -1,0 +1,239 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>CityClippers - Project1</title>
+
+    <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      
+    <!-- Google Maps API Link -->
+    <!-- <script language=“javascript” src=“https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyA-gC8ZZTnj7f7RjmWyPEYVR1QJNiA38r8“></script> -->
+
+  </head>
+  
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo center">
+            <img class="logo" src="./assets/images/logoCity.png">
+          </a>
+      </div>
+    </nav>
+
+    <div id="index-banner" class="parallax-container">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <br><br>
+          <h1 class="header center white-text text-lighten-2">Are You Hungry for a Deal?</h1>
+          <div class="row">
+              <div class="col s3"></div>
+              <div class="input-field col sm6 " id="zip_code">
+                  <form>
+
+                      <input type="text" name="zip" value="" placeholder="Enter Zip"> 
+                      <a href="#" onclick="getAddressInfoByZip()"><button class="btn waves-effect right" id="submit-button" type="submit" name="action">Submit
+                          <i class="material-icons right">send</i></button></a>
+                  </form>
+                  
+                  </button>  
+                 
+              </div> 
+                <div class="col s2"></div>          
+          </div>
+          <br><br>
+
+        </div>
+      </div>
+      <div class="parallax"><img src="assets/images/background1c.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+          <h4>Savor the Savings!</h4>
+          <div class="row">
+
+            <div class="col s7 card">
+              <div id="display-deal" style="width:100%"></div>
+            </div>
+
+            <div class="col s5">
+              <h3><i class="mdi-content-send brown-text"></i></h3>              
+              <div id="map" style="width:100%"></div>
+              <p class="left-align light">
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    
+    
+      <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <div class="row center">
+            </div>
+          </div>
+        </div>
+           <!-- Map Canvas Integration -->
+                
+           <!-- <div id="map" style="height:500px"></div> -->
+
+
+
+
+
+
+
+
+                  <!-- Map Canvas End -->
+        <div class="parallax"><img src="assets/images/background1.jpg" alt="Unsplashed background img 3"></div>
+      </div>
+
+  <div class="container">
+      <div class="section">
+          <div class="row" id="form">
+      <form class="col s12 center">
+              <h5>Email Alerts</h5>
+  <!-- Area where it will gather email name and zip code and will be connected to firebase -->
+        <div class="row">
+              <div class="col s2"></div>
+              <div class="input-field col s4">
+                <input placeholder="Name" id="name" type="text" class="validate">
+                <label for="name">Name</label>
+              </div>
+              <div class="input-field col s4">
+                <input placeholder="Comments" id="comments" type="text">
+                <label for="comments">Comments<i class="material-icons prefix">mode_edit</i></label>
+              </div>
+              <div class="col s2"></div>
+        </div>
+
+        <div class="row">
+              <div class="col s2"></div>
+              <div class="input-field col s4">
+                <input id="email" type="email" placeholder= "example@email.com" class="validate">
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s4">
+                  <input placeholder="What is 2+2?" id="human" type="text">
+                  <label for="human">I'm not a robot</label>
+              </div<div class="col s2"></div>
+        </div>
+
+        <div class="row">
+              <div class="col s2"></div>
+              <div class="input-field col s4">
+                  <input placeholder="Zip Code" id="zip" type="text" class="validate">
+                  <label for="Postal Code">Zip Code</label>
+              </div>
+              <div class="col s4">
+                  <button class="btn waves-effect center" id="submit2" type="submit" name="action">Submit
+                      <i class="material-icons right">send</i>
+                  </button>
+              </div>
+              <div class="col s2"></div>
+          </div>     
+        </form>
+      </div>    
+    </div>
+  </div>
+
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+          </div>
+        </div>
+      </div>
+      <div class="parallax"><img src="assets/images/background2.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+          <div class="row">
+            <div class="col s12 center">
+              <h3><i class="mdi-content-send brown-text"></i></h3>
+              <!-- Modal Trigger -->
+                  <a class="waves-effect waves-light modal-trigger" data-target="modal1"><img src = "assets/images/video.png"></a>
+                  
+              <!-- Modal Structure -->
+                  <div id="modal1" class="modal">
+                    <div class="modal-header right">
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">X</a></div>
+                    <div class="modal-content">
+                      <!-- <iframe width="660" height="390" src="https://www.youtube.com/embed/y6NI58V8lWM?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+                      <iframe width="660" height="390" src="https://www.youtube.com/embed/5JUbI1ecYe8?rel=0&amp;start=9" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>  
+                  </div>
+            </div>          
+
+          </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+          </div>
+        </div>
+      </div>
+      <div class="parallax"><img src="assets/images/background3.jpg" alt="Unsplashed background img 3"></div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text" id=aboutUs>About us</h5>
+            <p class="grey-text text-lighten-4">
+                At City Clippers we are committed to bringing you the best deals in your area.
+                Eating out can get expensive and we are here to help! Count on us!
+            </p>
+          </div>
+            <div class="col l3 s10"></div>
+            <div class="col l3 s12">
+              <h5 class="white-text" id=aboutUs>Connect with us</h5>
+              <ul>
+                <li><a class="white-text" target="_blank" href="https://github.com/victoriagoesplaces"><i class="fab fa-github"></i> Victoria Gonzalez</a></li>
+                <li><a class="white-text" target="_blank" href="https://github.com/thomson3914"><i class="fab fa-github"></i> Tyler Thomson</a></li>
+                <li><a class="white-text" target="_blank" href="https://github.com/rcardoso89"><i class="fab fa-github"></i> Rubens Cardoso</a></li>
+                <li><a class="white-text" target="_blank" href="https://github.com/robertsoaa"><i class="fab fa-github"></i> Adrian Robertson</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Made by <a class="brown-text text-lighten-3" href="https://github.com/victoriagoesplaces/ProjectOne">CityClippers</a>
+        </div>
+      </div>
+    </footer>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+   
+
+    <!-- Google Maps API Contact Page-->
+    
+    <script  src="js/maps.js"></script> 
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-gC8ZZTnj7f7RjmWyPEYVR1QJNiA38r8&libraries=places&callback=initMap"></script>
+
+    <!-- Discounts API -->
+    <script  src="js/deals.js"></script>
+    <!-- Icon for contact me -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <!-- Firebase js -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script type="text/javascript" src="js/firebaseapp.js"></script>
+
+    </body>
+   
+  </html>
